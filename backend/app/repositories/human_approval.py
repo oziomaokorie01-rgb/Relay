@@ -3,11 +3,11 @@ from __future__ import annotations
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from backend.app.models.human_approval import (
+from.app.models.human_approval import (
     HumanApproval,
     HumanApprovalDecision,
 )
-from backend.app.schemas.approval import HumanApprovalInput
+from.app.schemas.approval import HumanApprovalInput
 
 
 class HumanApprovalRepository:

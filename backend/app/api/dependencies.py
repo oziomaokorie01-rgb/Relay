@@ -5,32 +5,32 @@ from typing import Annotated
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from backend.app.agents.archivist import ArchivistAgent
-from backend.app.agents.investigator import InvestigatorAgent
-from backend.app.agents.repair import RepairAgent
-from backend.app.agents.reviewer import ReviewerAgent
-from backend.app.database.session import get_db
-from backend.app.integrations.datahub.gateway import DataHubGateway
-from backend.app.integrations.datahub.mock_gateway import MockDataHubGateway
-from backend.app.orchestration.orchestrator import InvestigationOrchestrator
-from backend.app.orchestration.state_machine import InvestigationStateMachine
-from backend.app.repositories.agent_activity import AgentActivityRepository
-from backend.app.repositories.evidence import EvidenceRepository
-from backend.app.repositories.human_approval import HumanApprovalRepository
-from backend.app.repositories.investigation import InvestigationRepository
-from backend.app.repositories.memory import MemoryRepository
-from backend.app.repositories.repair_proposal import RepairProposalRepository
-from backend.app.repositories.review import ReviewRepository
-from backend.app.repositories.memory_reuse_event import MemoryReuseEventRepository
-from backend.app.services.memory_reuse import MemoryReuseService
-from backend.app.services.agent_activity import AgentActivityService
-from backend.app.services.datahub_context import DataHubContextService
-from backend.app.services.evidence import EvidenceService
-from backend.app.services.human_approval import HumanApprovalService
-from backend.app.services.investigation import InvestigationService
-from backend.app.services.memory import MemoryService
-from backend.app.services.repair_proposal import RepairProposalService
-from backend.app.services.review import ReviewService
+from.app.agents.archivist import ArchivistAgent
+from.app.agents.investigator import InvestigatorAgent
+from.app.agents.repair import RepairAgent
+from.app.agents.reviewer import ReviewerAgent
+from.app.database.session import get_db
+from.app.integrations.datahub.gateway import DataHubGateway
+from.app.integrations.datahub.mock_gateway import MockDataHubGateway
+from.app.orchestration.orchestrator import InvestigationOrchestrator
+from.app.orchestration.state_machine import InvestigationStateMachine
+from.app.repositories.agent_activity import AgentActivityRepository
+from.app.repositories.evidence import EvidenceRepository
+from.app.repositories.human_approval import HumanApprovalRepository
+from.app.repositories.investigation import InvestigationRepository
+from.app.repositories.memory import MemoryRepository
+from.app.repositories.repair_proposal import RepairProposalRepository
+from.app.repositories.review import ReviewRepository
+from.app.repositories.memory_reuse_event import MemoryReuseEventRepository
+from.app.services.memory_reuse import MemoryReuseService
+from.app.services.agent_activity import AgentActivityService
+from.app.services.datahub_context import DataHubContextService
+from.app.services.evidence import EvidenceService
+from.app.services.human_approval import HumanApprovalService
+from.app.services.investigation import InvestigationService
+from.app.services.memory import MemoryService
+from.app.services.repair_proposal import RepairProposalService
+from.app.services.review import ReviewService
 
 
 DatabaseSession = Annotated[AsyncSession, Depends(get_db)]

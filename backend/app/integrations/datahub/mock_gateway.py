@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-from backend.app.integrations.datahub.models import (
+from.app.integrations.datahub.models import (
     AssetContext,
     AssetOwner,
     AssetReference,

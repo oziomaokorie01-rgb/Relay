@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from backend.app.models.investigation import Investigation
-from backend.app.repositories.investigation import InvestigationRepository
-from backend.app.schemas.investigation import InvestigationCreate
+from.app.models.investigation import Investigation
+from.app.repositories.investigation import InvestigationRepository
+from.app.schemas.investigation import InvestigationCreate
 
 
 class InvestigationNotFoundError(Exception):

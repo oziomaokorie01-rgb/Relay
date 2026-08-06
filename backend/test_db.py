@@ -1,7 +1,7 @@
 import asyncio
 from sqlalchemy import inspect
 
-from backend.app.database.session import engine
+from.app.database.session import engine
 
 
 async def check():

@@ -1,32 +1,32 @@
 from __future__ import annotations
 
-from backend.app.agents.archivist import ArchivistAgent
-from backend.app.agents.investigator import InvestigatorAgent
-from backend.app.agents.repair import RepairAgent
-from backend.app.agents.reviewer import ReviewerAgent
-from backend.app.core.config import get_settings
-from backend.app.models.agent_activity import (
+from.app.agents.archivist import ArchivistAgent
+from.app.agents.investigator import InvestigatorAgent
+from.app.agents.repair import RepairAgent
+from.app.agents.reviewer import ReviewerAgent
+from.app.core.config import get_settings
+from.app.models.agent_activity import (
     ActivityStatus,
     AgentName,
 )
-from backend.app.models.investigation import (
+from.app.models.investigation import (
     Investigation,
     InvestigationStatus,
 )
-from backend.app.models.memory import RelayMemory
-from backend.app.models.memory_reuse_event import MemoryReuseType
-from backend.app.models.repair_proposal import RepairProposalStatus
-from backend.app.orchestration.state_machine import InvestigationStateMachine
-from backend.app.repositories.investigation import InvestigationRepository
-from backend.app.services.agent_activity import AgentActivityService
-from backend.app.services.datahub_context import DataHubContextService
-from backend.app.services.evidence import EvidenceService
-from backend.app.services.human_approval import HumanApprovalService
-from backend.app.services.investigation import InvestigationService
-from backend.app.services.memory import MemoryService
-from backend.app.services.memory_reuse import MemoryReuseService
-from backend.app.services.repair_proposal import RepairProposalService
-from backend.app.services.review import ReviewService
+from.app.models.memory import RelayMemory
+from.app.models.memory_reuse_event import MemoryReuseType
+from.app.models.repair_proposal import RepairProposalStatus
+from.app.orchestration.state_machine import InvestigationStateMachine
+from.app.repositories.investigation import InvestigationRepository
+from.app.services.agent_activity import AgentActivityService
+from.app.services.datahub_context import DataHubContextService
+from.app.services.evidence import EvidenceService
+from.app.services.human_approval import HumanApprovalService
+from.app.services.investigation import InvestigationService
+from.app.services.memory import MemoryService
+from.app.services.memory_reuse import MemoryReuseService
+from.app.services.repair_proposal import RepairProposalService
+from.app.services.review import ReviewService
 
 
 settings = get_settings()

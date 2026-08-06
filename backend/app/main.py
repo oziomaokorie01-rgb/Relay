@@ -3,9 +3,9 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.app.api.router import api_router
-from backend.app.core.config import get_settings
-from backend.app.database.init_db import init_db
+from app.api.router import api_router
+from app.core.config import get_settings
+from app.database.init_db import init_db
 
 settings = get_settings()
 

@@ -3,12 +3,12 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any
 
-from backend.app.models.agent_activity import (
+from.app.models.agent_activity import (
     ActivityStatus,
     AgentActivity,
     AgentName,
 )
-from backend.app.repositories.agent_activity import AgentActivityRepository
+from.app.repositories.agent_activity import AgentActivityRepository
 
 
 class AgentActivityService:

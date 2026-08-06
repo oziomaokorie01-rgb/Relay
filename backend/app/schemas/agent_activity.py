@@ -5,7 +5,7 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict
 
-from backend.app.models.agent_activity import (
+from.app.models.agent_activity import (
     ActivityStatus,
     AgentName,
 )

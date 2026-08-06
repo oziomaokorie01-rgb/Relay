@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from backend.app.models.evidence import Evidence
-from backend.app.schemas.repair import (
+from.app.models.evidence import Evidence
+from.app.schemas.repair import (
     RepairResult,
     RepairTest,
 )

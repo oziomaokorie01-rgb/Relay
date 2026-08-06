@@ -5,7 +5,7 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict
 
-from backend.app.models.evidence import EvidenceType
+from.app.models.evidence import EvidenceType
 
 
 class EvidenceResponse(BaseModel):

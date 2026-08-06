@@ -5,7 +5,7 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict
 
-from backend.app.models.review import ReviewDecision
+from.app.models.review import ReviewDecision
 
 
 class ReviewResponse(BaseModel):
