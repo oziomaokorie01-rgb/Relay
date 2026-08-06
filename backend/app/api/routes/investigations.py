@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Query, status
 
-from.app.api.dependencies import (
+from app.api.dependencies import (
     AgentActivityServiceDependency,
     EvidenceServiceDependency,
     HumanApprovalServiceDependency,
@@ -13,33 +13,33 @@ from.app.api.dependencies import (
     RepairProposalServiceDependency,
     ReviewServiceDependency,
 )
-from.app.schemas.approval import (
+from app.schemas.approval import (
     HumanApprovalInput,
     HumanApprovalResponse,
 )
-from.app.schemas.memory_reuse import MemoryReuseEventResponse
-from.app.schemas.memory import (
+from app.schemas.memory_reuse import MemoryReuseEventResponse
+from app.schemas.memory import (
     InvestigationArchiveResponse,
     MemoryResponse,
 )
-from.app.schemas.review import ReviewResponse
-from.app.services.review import ReviewNotFoundError
-from.app.schemas.repair_proposal import RepairProposalResponse
-from.app.services.repair_proposal import RepairProposalNotFoundError
-from.app.models.agent_activity import ActivityStatus, AgentName
-from.app.models.investigation import InvestigationStatus
-from.app.schemas.evidence import EvidenceResponse
-from.app.orchestration.state_machine import (
+from app.schemas.review import ReviewResponse
+from app.services.review import ReviewNotFoundError
+from app.schemas.repair_proposal import RepairProposalResponse
+from app.services.repair_proposal import RepairProposalNotFoundError
+from app.models.agent_activity import ActivityStatus, AgentName
+from app.models.investigation import InvestigationStatus
+from app.schemas.evidence import EvidenceResponse
+from app.orchestration.state_machine import (
     InvalidInvestigationTransitionError,
 )
-from.app.schemas.agent_activity import AgentActivityResponse
-from.app.schemas.investigation import (
+from app.schemas.agent_activity import AgentActivityResponse
+from app.schemas.investigation import (
     InvestigationCreate,
     InvestigationCreated,
     InvestigationDetail,
     InvestigationSummary,
 )
-from.app.services.investigation import InvestigationNotFoundError
+from app.services.investigation import InvestigationNotFoundError
 
 
 router = APIRouter(

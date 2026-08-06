@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from.app.models.memory import (
+from app.models.memory import (
     MemoryVerificationStatus,
     RelayMemory,
 )
-from.app.repositories.memory import MemoryRepository
-from.app.schemas.archivist import ArchivistResult
+from app.repositories.memory import MemoryRepository
+from app.schemas.archivist import ArchivistResult
 
 
 class MemoryNotFoundError(Exception):

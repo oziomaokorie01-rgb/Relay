@@ -4,7 +4,7 @@ from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from.app.models.investigation import (
+from app.models.investigation import (
     InvestigationPriority,
     InvestigationStatus,
 )

@@ -4,7 +4,7 @@ from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict
 
-from.app.models.memory_reuse_event import MemoryReuseType
+from app.models.memory_reuse_event import MemoryReuseType
 
 
 class MemoryReuseEventResponse(BaseModel):

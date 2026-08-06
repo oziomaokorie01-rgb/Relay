@@ -1,8 +1,8 @@
-from fastapi import APIRouter
+ from fastapi import APIRouter
 
-from.app.api.routes.assets import router as assets_router
-from.app.api.routes.investigations import router as investigations_router
-from.app.api.routes.memories import router as memories_router
+from app.api.routes.assets import router as assets_router
+from app.api.routes.investigations import router as investigations_router
+from app.api.routes.memories import router as memories_router
 
 
 api_router = APIRouter()

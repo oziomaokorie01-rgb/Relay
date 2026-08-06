@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from.app.models.review import Review
-from.app.repositories.review import ReviewRepository
-from.app.schemas.reviewer import ReviewerResult
+from app.models.review import Review
+from app.repositories.review import ReviewRepository
+from app.schemas.reviewer import ReviewerResult
 
 
 class ReviewNotFoundError(Exception):

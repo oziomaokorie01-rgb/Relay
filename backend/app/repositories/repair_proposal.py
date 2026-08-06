@@ -3,13 +3,13 @@ from __future__ import annotations
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from.app.models.repair_proposal import (
+from app.models.repair_proposal import (
     RepairArtifactType,
     RepairProposal,
     RepairProposalStatus,
     RepairRiskLevel,
 )
-from.app.schemas.repair import RepairResult
+from app.schemas.repair import RepairResult
 
 
 class RepairProposalRepository:

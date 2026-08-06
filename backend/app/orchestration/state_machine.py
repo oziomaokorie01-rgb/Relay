@@ -1,15 +1,15 @@
 from __future__ import annotations
 
-from.app.models.agent_activity import (
+from app.models.agent_activity import (
     ActivityStatus,
     AgentName,
 )
-from.app.models.investigation import (
+from app.models.investigation import (
     Investigation,
     InvestigationStatus,
 )
-from.app.repositories.investigation import InvestigationRepository
-from.app.services.agent_activity import AgentActivityService
+from app.repositories.investigation import InvestigationRepository
+from app.services.agent_activity import AgentActivityService
 
 
 class InvalidInvestigationTransitionError(Exception):

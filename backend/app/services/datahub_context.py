@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from.app.integrations.datahub.gateway import DataHubGateway
-from.app.integrations.datahub.models import AssetContext, LineageGraph
+from app.integrations.datahub.gateway import DataHubGateway
+from app.integrations.datahub.models import AssetContext, LineageGraph
 
 
 class DataHubContextService:

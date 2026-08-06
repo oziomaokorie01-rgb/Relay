@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from.app.models.human_approval import (
+from app.models.human_approval import (
     HumanApproval,
     HumanApprovalDecision,
 )
-from.app.repositories.human_approval import HumanApprovalRepository
-from.app.schemas.approval import HumanApprovalInput
+from app.repositories.human_approval import HumanApprovalRepository
+from app.schemas.approval import HumanApprovalInput
 
 
 class HumanApprovalNotFoundError(Exception):

@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from sqlalchemy import DateTime, Enum, Float, ForeignKey, Integer, JSON, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 
-from.app.database.base import Base
+from app.database.base import Base
 
 
 def utc_now() -> datetime:

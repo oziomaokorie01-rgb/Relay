@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from.app.models.evidence import Evidence
-from.app.repositories.evidence import EvidenceRepository
-from.app.schemas.investigator import InvestigatorEvidence
+from app.models.evidence import Evidence
+from app.repositories.evidence import EvidenceRepository
+from app.schemas.investigator import InvestigatorEvidence
 
 
 class EvidenceService:

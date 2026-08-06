@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from.app.models.repair_proposal import (
+from app.models.repair_proposal import (
     RepairProposal,
     RepairProposalStatus,
 )
-from.app.repositories.repair_proposal import RepairProposalRepository
-from.app.schemas.repair import RepairResult
+from app.repositories.repair_proposal import RepairProposalRepository
+from app.schemas.repair import RepairResult
 
 
 class RepairProposalNotFoundError(Exception):

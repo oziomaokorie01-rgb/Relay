@@ -6,7 +6,7 @@ from typing import Any
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from.app.models.agent_activity import (
+from app.models.agent_activity import (
     ActivityStatus,
     AgentActivity,
     AgentName,

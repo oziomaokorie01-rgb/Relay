@@ -2,13 +2,13 @@ from __future__ import annotations
 
 import re
 
-from.app.models.investigation import Investigation
-from.app.models.memory import RelayMemory
-from.app.models.memory_reuse_event import (
+from app.models.investigation import Investigation
+from app.models.memory import RelayMemory
+from app.models.memory_reuse_event import (
     MemoryReuseEvent,
     MemoryReuseType,
 )
-from.app.repositories.memory_reuse_event import (
+from app.repositories.memory_reuse_event import (
     MemoryReuseEventRepository,
 )
 

@@ -5,11 +5,11 @@ from datetime import datetime, timezone
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from.app.models.investigation import (
+from app.models.investigation import (
     Investigation,
     InvestigationStatus,
 )
-from.app.schemas.investigation import InvestigationCreate
+from app.schemas.investigation import InvestigationCreate
 
 
 def utc_now() -> datetime:

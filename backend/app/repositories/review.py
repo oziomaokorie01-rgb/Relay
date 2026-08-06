@@ -3,8 +3,8 @@ from __future__ import annotations
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from.app.models.review import Review, ReviewDecision
-from.app.schemas.reviewer import ReviewerResult
+from app.models.review import Review, ReviewDecision
+from app.schemas.reviewer import ReviewerResult
 
 
 class ReviewRepository:

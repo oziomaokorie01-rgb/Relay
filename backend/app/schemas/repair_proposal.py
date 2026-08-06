@@ -5,7 +5,7 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict
 
-from.app.models.repair_proposal import (
+from app.models.repair_proposal import (
     RepairArtifactType,
     RepairProposalStatus,
     RepairRiskLevel,

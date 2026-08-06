@@ -5,32 +5,32 @@ from typing import Annotated
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from.app.agents.archivist import ArchivistAgent
-from.app.agents.investigator import InvestigatorAgent
-from.app.agents.repair import RepairAgent
-from.app.agents.reviewer import ReviewerAgent
-from.app.database.session import get_db
-from.app.integrations.datahub.gateway import DataHubGateway
-from.app.integrations.datahub.mock_gateway import MockDataHubGateway
-from.app.orchestration.orchestrator import InvestigationOrchestrator
-from.app.orchestration.state_machine import InvestigationStateMachine
-from.app.repositories.agent_activity import AgentActivityRepository
-from.app.repositories.evidence import EvidenceRepository
-from.app.repositories.human_approval import HumanApprovalRepository
-from.app.repositories.investigation import InvestigationRepository
-from.app.repositories.memory import MemoryRepository
-from.app.repositories.repair_proposal import RepairProposalRepository
-from.app.repositories.review import ReviewRepository
-from.app.repositories.memory_reuse_event import MemoryReuseEventRepository
-from.app.services.memory_reuse import MemoryReuseService
-from.app.services.agent_activity import AgentActivityService
-from.app.services.datahub_context import DataHubContextService
-from.app.services.evidence import EvidenceService
-from.app.services.human_approval import HumanApprovalService
-from.app.services.investigation import InvestigationService
-from.app.services.memory import MemoryService
-from.app.services.repair_proposal import RepairProposalService
-from.app.services.review import ReviewService
+from app.agents.archivist import ArchivistAgent
+from app.agents.investigator import InvestigatorAgent
+from app.agents.repair import RepairAgent
+from app.agents.reviewer import ReviewerAgent
+from app.database.session import get_db
+from app.integrations.datahub.gateway import DataHubGateway
+from app.integrations.datahub.mock_gateway import MockDataHubGateway
+from app.orchestration.orchestrator import InvestigationOrchestrator
+from app.orchestration.state_machine import InvestigationStateMachine
+from app.repositories.agent_activity import AgentActivityRepository
+from app.repositories.evidence import EvidenceRepository
+from app.repositories.human_approval import HumanApprovalRepository
+from app.repositories.investigation import InvestigationRepository
+from app.repositories.memory import MemoryRepository
+from app.repositories.repair_proposal import RepairProposalRepository
+from app.repositories.review import ReviewRepository
+from app.repositories.memory_reuse_event import MemoryReuseEventRepository
+from app.services.memory_reuse import MemoryReuseService
+from app.services.agent_activity import AgentActivityService
+from app.services.datahub_context import DataHubContextService
+from app.services.evidence import EvidenceService
+from app.services.human_approval import HumanApprovalService
+from app.services.investigation import InvestigationService
+from app.services.memory import MemoryService
+from app.services.repair_proposal import RepairProposalService
+from app.services.review import ReviewService
 
 
 DatabaseSession = Annotated[AsyncSession, Depends(get_db)]

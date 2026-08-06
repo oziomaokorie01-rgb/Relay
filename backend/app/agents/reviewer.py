@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from.app.models.evidence import Evidence
-from.app.models.repair_proposal import RepairProposal, RepairRiskLevel
-from.app.schemas.reviewer import ReviewCheck, ReviewerResult
+from app.models.evidence import Evidence
+from app.models.repair_proposal import RepairProposal, RepairRiskLevel
+from app.schemas.reviewer import ReviewCheck, ReviewerResult
 
 
 class ReviewerAgent:

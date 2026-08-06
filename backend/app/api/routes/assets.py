@@ -4,9 +4,9 @@ from urllib.parse import unquote
 
 from fastapi import APIRouter, HTTPException, Query, status
 
-from.app.api.dependencies import DataHubGatewayDependency
-from.app.integrations.datahub.mock_gateway import DataHubAssetNotFoundError
-from.app.integrations.datahub.models import (
+from app.api.dependencies import DataHubGatewayDependency
+from app.integrations.datahub.mock_gateway import DataHubAssetNotFoundError
+from app.integrations.datahub.models import (
     AssetContext,
     AssetSummary,
     LineageGraph,

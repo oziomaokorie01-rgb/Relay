@@ -1,8 +1,8 @@
 from sqlalchemy.ext.asyncio import AsyncEngine
 
 import backend.app.models  # noqa: F401
-from.app.database.base import Base
-from.app.database.session import engine
+from app.database.base import Base
+from app.database.session import engine
 
 
 async def init_db(database_engine: AsyncEngine = engine) -> None:

@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from.app.models.evidence import Evidence
-from.app.models.human_approval import HumanApproval
-from.app.models.investigation import Investigation
-from.app.models.repair_proposal import RepairProposal
-from.app.models.review import Review
-from.app.schemas.archivist import ArchivistResult
+from app.models.evidence import Evidence
+from app.models.human_approval import HumanApproval
+from app.models.investigation import Investigation
+from app.models.repair_proposal import RepairProposal
+from app.models.review import Review
+from app.schemas.archivist import ArchivistResult
 
 
 class ArchivistAgent:

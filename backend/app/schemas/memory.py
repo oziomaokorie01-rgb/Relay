@@ -4,7 +4,7 @@ from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict
 
-from.app.models.memory import MemoryVerificationStatus
+from app.models.memory import MemoryVerificationStatus
 
 
 class MemoryResponse(BaseModel):

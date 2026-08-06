@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Protocol
 
-from.app.integrations.datahub.models import (
+from app.integrations.datahub.models import (
     AssetContext,
     AssetSummary,
     LineageGraph,

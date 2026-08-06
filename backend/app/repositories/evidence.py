@@ -3,8 +3,8 @@ from __future__ import annotations
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from.app.models.evidence import Evidence, EvidenceType
-from.app.schemas.investigator import InvestigatorEvidence
+from app.models.evidence import Evidence, EvidenceType
+from app.schemas.investigator import InvestigatorEvidence
 
 
 class EvidenceRepository:

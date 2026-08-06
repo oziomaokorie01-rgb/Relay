@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from.app.models.memory import RelayMemory
-from.app.schemas.investigator import (
+from app.models.memory import RelayMemory
+from app.schemas.investigator import (
     InheritedMemoryReference,
     InvestigatorEvidence,
     InvestigatorResult,

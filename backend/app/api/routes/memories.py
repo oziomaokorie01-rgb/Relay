@@ -2,13 +2,13 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Query, status
 
-from.app.api.dependencies import (
+from app.api.dependencies import (
     MemoryReuseServiceDependency,
     MemoryServiceDependency,
 )
-from.app.schemas.memory import MemoryResponse
-from.app.schemas.memory_reuse import MemoryReuseEventResponse
-from.app.services.memory import MemoryNotFoundError
+from app.schemas.memory import MemoryResponse
+from app.schemas.memory_reuse import MemoryReuseEventResponse
+from app.services.memory import MemoryNotFoundError
 
 
 router = APIRouter(
