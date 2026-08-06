@@ -16,6 +16,7 @@ import {
   getInvestigationReview,
   submitInvestigationApproval,
 } from "../lib/api";
+import InvestigationActivityTimeline from "./InvestigationActivityTimeline";
 import InvestigationFailurePanel from "./InvestigationFailurePanel";
 import LiveInvestigationBanner from "./LiveInvestigationBanner";
 import LineageGraph from "./LineageGraph";
@@ -940,54 +941,27 @@ activeTab === "review" && (
         </article>
       )}
 
-      {activeTab === "activity" && (
-        <article className="relay-panel">
-          <div className="relay-panel-heading">
-            <div>
-              <p className="relay-eyebrow">
-                Agent trace
-              </p>
-              <h3>Activity timeline</h3>
-            </div>
+     {activeTab === "activity" && (
+  <article className="relay-panel">
+    <div className="relay-panel-heading">
+      <div>
+        <p className="relay-eyebrow">
+          Agent trace
+        </p>
 
-            <span className="relay-count-badge">
-              {data.activity.length}
-            </span>
-          </div>
+        <h3>Activity timeline</h3>
+      </div>
 
-          {data.activity.length === 0 ? (
-            <div className="relay-empty-state">
-              No activity has been recorded yet.
-            </div>
-          ) : (
-            <div className="relay-activity-timeline">
-              {data.activity.map((activity) => (
-                <article key={activity.id}>
-                  <span
-                    className={`relay-activity-dot is-${activity.status}`}
-                  />
+      <span className="relay-count-badge">
+        {data.activity.length}
+      </span>
+    </div>
 
-                  <div>
-                    <header>
-                      <strong>
-                        {formatLabel(activity.agent_name)}
-                      </strong>
-
-                      <span>
-                        {formatDate(activity.started_at)}
-                      </span>
-                    </header>
-
-                    <h4>{formatLabel(activity.event_type)}</h4>
-                    <p>{activity.message}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          )}
-        </article>
-      )}
-
+    <InvestigationActivityTimeline
+      activities={data.activity}
+    />
+  </article>
+)}
       <footer className="relay-workspace-footer">
         <span>
           Created {formatDate(investigation.created_at)}
