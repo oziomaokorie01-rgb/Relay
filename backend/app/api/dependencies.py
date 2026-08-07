@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from functools import lru_cache
 from typing import Annotated
 
 from fastapi import Depends
@@ -9,31 +10,56 @@ from app.agents.archivist import ArchivistAgent
 from app.agents.investigator import InvestigatorAgent
 from app.agents.repair import RepairAgent
 from app.agents.reviewer import ReviewerAgent
+from app.core.config import get_settings
 from app.database.session import get_db
 from app.integrations.datahub.gateway import DataHubGateway
-from app.integrations.datahub.mock_gateway import MockDataHubGateway
-from app.orchestration.orchestrator import InvestigationOrchestrator
-from app.orchestration.state_machine import InvestigationStateMachine
-from app.repositories.agent_activity import AgentActivityRepository
+from app.integrations.datahub.graphql_gateway import (
+    GraphQLDataHubGateway,
+)
+from app.integrations.datahub.mock_gateway import (
+    MockDataHubGateway,
+)
+from app.orchestration.orchestrator import (
+    InvestigationOrchestrator,
+)
+from app.orchestration.state_machine import (
+    InvestigationStateMachine,
+)
+from app.repositories.agent_activity import (
+    AgentActivityRepository,
+)
 from app.repositories.evidence import EvidenceRepository
-from app.repositories.human_approval import HumanApprovalRepository
-from app.repositories.investigation import InvestigationRepository
+from app.repositories.human_approval import (
+    HumanApprovalRepository,
+)
+from app.repositories.investigation import (
+    InvestigationRepository,
+)
 from app.repositories.memory import MemoryRepository
-from app.repositories.repair_proposal import RepairProposalRepository
+from app.repositories.memory_reuse_event import (
+    MemoryReuseEventRepository,
+)
+from app.repositories.repair_proposal import (
+    RepairProposalRepository,
+)
 from app.repositories.review import ReviewRepository
-from app.repositories.memory_reuse_event import MemoryReuseEventRepository
-from app.services.memory_reuse import MemoryReuseService
 from app.services.agent_activity import AgentActivityService
 from app.services.datahub_context import DataHubContextService
 from app.services.evidence import EvidenceService
 from app.services.human_approval import HumanApprovalService
 from app.services.investigation import InvestigationService
 from app.services.memory import MemoryService
-from app.services.repair_proposal import RepairProposalService
+from app.services.memory_reuse import MemoryReuseService
+from app.services.repair_proposal import (
+    RepairProposalService,
+)
 from app.services.review import ReviewService
 
 
-DatabaseSession = Annotated[AsyncSession, Depends(get_db)]
+DatabaseSession = Annotated[
+    AsyncSession,
+    Depends(get_db),
+]
 
 
 def get_investigation_repository(
@@ -119,6 +145,7 @@ MemoryRepositoryDependency = Annotated[
     Depends(get_memory_repository),
 ]
 
+
 def get_memory_reuse_event_repository(
     session: DatabaseSession,
 ) -> MemoryReuseEventRepository:
@@ -129,6 +156,8 @@ MemoryReuseEventRepositoryDependency = Annotated[
     MemoryReuseEventRepository,
     Depends(get_memory_reuse_event_repository),
 ]
+
+
 def get_investigation_service(
     repository: InvestigationRepositoryDependency,
 ) -> InvestigationService:
@@ -212,6 +241,7 @@ MemoryServiceDependency = Annotated[
     Depends(get_memory_service),
 ]
 
+
 def get_memory_reuse_service(
     repository: MemoryReuseEventRepositoryDependency,
 ) -> MemoryReuseService:
@@ -222,6 +252,8 @@ MemoryReuseServiceDependency = Annotated[
     MemoryReuseService,
     Depends(get_memory_reuse_service),
 ]
+
+
 def get_investigation_state_machine(
     investigation_repository: InvestigationRepositoryDependency,
     activity_service: AgentActivityServiceDependency,
@@ -238,7 +270,25 @@ InvestigationStateMachineDependency = Annotated[
 ]
 
 
+@lru_cache
 def get_datahub_gateway() -> DataHubGateway:
+    settings = get_settings()
+
+    if settings.datahub_provider == "graphql":
+        if not settings.datahub_base_url:
+            raise RuntimeError(
+                "DATAHUB_BASE_URL is required when "
+                "DATAHUB_PROVIDER=graphql."
+            )
+
+        return GraphQLDataHubGateway(
+            base_url=settings.datahub_base_url,
+            token=settings.datahub_token,
+            timeout_seconds=(
+                settings.datahub_timeout_seconds
+            ),
+        )
+
     return MockDataHubGateway()
 
 
@@ -318,7 +368,8 @@ def get_investigation_orchestrator(
     archivist_agent: ArchivistAgentDependency,
 ) -> InvestigationOrchestrator:
     """
-    Build Relay's complete investigation orchestrator for this request.
+    Build Relay's complete investigation orchestrator
+    for the current request.
     """
 
     return InvestigationOrchestrator(
@@ -338,6 +389,8 @@ def get_investigation_orchestrator(
         reviewer_agent=reviewer_agent,
         archivist_agent=archivist_agent,
     )
+
+
 InvestigationOrchestratorDependency = Annotated[
     InvestigationOrchestrator,
     Depends(get_investigation_orchestrator),
