@@ -1,0 +1,49 @@
+{
+  "asset": {
+    "urn": "urn:li:dashboard:(looker,revenue_dashboard)",
+    "name": "revenue_dashboard",
+    "display_name": "Revenue Dashboard",
+    "entity_type": "dashboard",
+    "platform": "looker",
+    "domain": "Finance Analytics",
+    "description": "Executive dashboard tracking daily and monthly revenue performance.",
+    "owners": [
+      {
+        "name": "Analytics Engineering",
+        "type": "group",
+        "email": "analytics@example.com"
+      }
+    ],
+    "tags": [
+      "revenue",
+      "finance",
+      "executive-reporting"
+    ]
+  },
+  "lineage": {
+    "upstream": [
+      {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:snowflake,analytics.revenue_model,PROD)",
+        "display_name": "analytics.revenue_model",
+        "platform": "snowflake"
+      },
+      {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:snowflake,analytics.clean_orders,PROD)",
+        "display_name": "analytics.clean_orders",
+        "platform": "snowflake"
+      },
+      {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:snowflake,raw.raw_orders,PROD)",
+        "display_name": "raw.raw_orders",
+        "platform": "snowflake"
+      }
+    ]
+  },
+  "schema_change": {
+    "asset": "raw.raw_orders",
+    "field": "customer_id",
+    "previous_type": "integer",
+    "current_type": "string",
+    "detected_at": "2026-08-05T08:00:00Z"
+  }
+}

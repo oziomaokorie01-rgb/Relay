@@ -1,0 +1,56 @@
+{
+  "investigation": {
+    "title": "Revenue dashboard dropped by 35%",
+    "description": "Revenue fell after the latest refresh and the dashboard no longer matches expected totals.",
+    "priority": "high",
+    "status": "completed"
+  },
+  "root_cause": {
+    "summary": "The customer_id field in raw_orders changed from an integer to a text value. Because clean_orders still expected an integer, many order records no longer matched during the join. As a result, fewer orders reached the revenue model, causing the Revenue Dashboard to under-report revenue by 35%.",
+    "confidence": 0.96,
+    "affected_assets": [
+      "raw.raw_orders",
+      "analytics.clean_orders",
+      "analytics.revenue_model",
+      "Revenue Dashboard"
+    ]
+  },
+  "evidence": [
+    {
+      "type": "schema_change",
+      "source": "DataHub metadata context",
+      "finding": "raw_orders.customer_id changed from integer to string.",
+      "confidence": 0.99
+    },
+    {
+      "type": "lineage",
+      "source": "DataHub lineage",
+      "finding": "raw_orders feeds clean_orders, which feeds revenue_model and ultimately the Revenue Dashboard.",
+      "confidence": 0.98
+    },
+    {
+      "type": "join_failure",
+      "source": "Investigator Agent",
+      "finding": "The downstream join continued to expect integer customer_id values, causing records with incompatible string values to fail matching.",
+      "confidence": 0.94
+    }
+  ],
+  "agent_trace": [
+    {
+      "agent": "Investigator",
+      "result": "Identified schema mismatch as the likely root cause."
+    },
+    {
+      "agent": "Repair",
+      "result": "Generated a safe normalization and validation fix."
+    },
+    {
+      "agent": "Reviewer",
+      "result": "Validated the repair and recommended approval."
+    },
+    {
+      "agent": "Archivist",
+      "result": "Prepared the verified resolution for organizational reuse."
+    }
+  ]
+}

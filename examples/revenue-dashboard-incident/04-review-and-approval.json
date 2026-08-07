@@ -1,0 +1,35 @@
+{
+  "review": {
+    "decision": "approve",
+    "confidence": 0.95,
+    "checks": [
+      {
+        "name": "Root cause supported by evidence",
+        "status": "passed"
+      },
+      {
+        "name": "Repair aligns schema types",
+        "status": "passed"
+      },
+      {
+        "name": "Repair avoids dropping invalid rows silently",
+        "status": "passed"
+      },
+      {
+        "name": "Downstream impact considered",
+        "status": "passed"
+      }
+    ],
+    "missing_evidence": [],
+    "conditions": [
+      "Monitor invalid customer_id values after deployment.",
+      "Confirm Revenue Dashboard totals return to expected range."
+    ]
+  },
+  "human_approval": {
+    "decision": "approve",
+    "notes": "Approved for organizational reuse.",
+    "approved_by": "human_reviewer",
+    "status": "approved"
+  }
+}

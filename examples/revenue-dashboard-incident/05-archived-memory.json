@@ -1,0 +1,35 @@
+{
+  "memory": {
+    "title": "Revenue join failure after customer_id schema change",
+    "verification_status": "verified",
+    "root_cause": "The customer_id field in raw_orders changed from an integer to a text value. Because clean_orders still expected an integer, many order records no longer matched during the join. As a result, fewer orders reached the revenue model and the Revenue Dashboard under-reported revenue.",
+    "resolution": "Normalize raw_orders.customer_id to integer before the downstream join. Separate values that cannot be safely converted and monitor them instead of silently dropping them.",
+    "confidence": 0.96,
+    "keywords": [
+      "customer_id",
+      "schema change",
+      "join failure",
+      "revenue",
+      "raw_orders",
+      "clean_orders"
+    ],
+    "related_assets": [
+      "urn:li:dataset:(urn:li:dataPlatform:snowflake,raw.raw_orders,PROD)",
+      "urn:li:dataset:(urn:li:dataPlatform:snowflake,analytics.clean_orders,PROD)",
+      "urn:li:dataset:(urn:li:dataPlatform:snowflake,analytics.revenue_model,PROD)",
+      "urn:li:dashboard:(looker,revenue_dashboard)"
+    ],
+    "reusable_guidance": [
+      "Check upstream schema changes before debugging dashboard calculations.",
+      "Validate join-key type compatibility across lineage boundaries.",
+      "Quarantine values that cannot be safely normalized.",
+      "Verify downstream dashboard totals after repair."
+    ]
+  },
+  "future_reuse_example": {
+    "trigger": "A later investigation detects a similar customer_id schema mismatch.",
+    "similarity_score": 0.91,
+    "recommended_memory": "Revenue join failure after customer_id schema change",
+    "expected_benefit": "Skip repeated root-cause discovery and start directly from the previously verified repair pattern."
+  }
+}
